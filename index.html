@@ -161,6 +161,28 @@
             box-shadow: 0 6px 16px rgba(37, 211, 102, 0.4);
         }
 
+        /* ========== 新增：contactButton按钮样式（优化视觉，与页面风格统一） ========== */
+        #contactButton {
+            background-color: #3b82f6;
+            color: #ffffff;
+            border: none;
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+            transition: all 0.3s ease-in-out;
+            display: block;
+            margin: 3rem auto; /* 居中显示，与其他内容分隔 */
+        }
+
+        #contactButton:hover {
+            background-color: #0c2461;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 16px rgba(59, 130, 246, 0.4);
+        }
+
         /* 页脚样式 */
         footer {
             background-color: #0c2461;
@@ -217,10 +239,18 @@
                 width: 100%;
                 justify-content: center;
             }
+
+            /* 响应式：contactButton按钮适配 */
+            #contactButton {
+                padding: 0.8rem 2rem;
+                font-size: 1rem;
+                width: 100%;
+                max-width: 300px;
+            }
         }
     </style>
 
-    <!-- ========== 嵌入：Facebook Meta Pixel Code ========== -->
+    <!-- ========== Facebook Meta Pixel Code ========== -->
     <script>
     !function(f,b,e,v,n,t,s)
     {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -314,11 +344,33 @@
         </section>
     </div>
 
+    <!-- ========== 新增：contactButton按钮（放置在主内容后、页脚前，提升可见性） ========== -->
+    <button id="contactButton">联系</button>
+
     <!-- 页面页脚 -->
     <footer>
         <p>© 2026 Inversiones Bursátiles Españolas - Todos los derechos reservados</p>
         <p>Mercado Bursátil Español | Bolsa de Madrid (BME)</p>
         <p>Información únicamente educativa - No constituye asesoramiento financiero</p>
     </footer>
+
+    <!-- ========== 新增：contactButton点击事件监听脚本 ========== -->
+    <script type="text/javascript">
+        document.getElementById('contactButton').addEventListener('click', function() {
+            // 此处可插入你需要的事件代码（示例功能如下，可自定义修改）
+            // 1. 触发Facebook Pixel联系事件（追踪按钮点击转化）
+            fbq('track', 'Contact', {
+                method: 'Website Contact Button',
+                platform: 'Mercado Español Acciones'
+            });
+
+            // 2. 弹出提示框（反馈用户点击结果，可删除或替换）
+            alert('¡Gracias por contactarnos! Serás redirigido a nuestro canal de WhatsApp pronto.');
+
+            // 3. 可选：直接跳转至WhatsApp通用咨询（与现有按钮联动）
+            // window.location.href = 'https://wa.me/34123456789?text=Hola! Quiero contactar con el equipo de inversiones españolas.';
+
+        }, false);
+    </script>
 </body>
 </html>
