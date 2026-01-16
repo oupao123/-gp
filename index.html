@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inversiones en Acciones Españolas - Mercado Bursátil Español</title>
+    <style>
+        /* 全局样式重置与基础配置 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', 'Helvetica Neue', Helvetica, sans-serif;
+        }
+
+        body {
+            background-color: #f5f7fa;
+            color: #1a202c;
+            line-height: 1.7;
+        }
+
+        /* 头部样式 */
+        header {
+            background: linear-gradient(135deg, #0c2461, #1e3799);
+            color: #ffffff;
+            padding: 2rem 0;
+            text-align: center;
+            box-shadow: 0 3px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.8rem;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* 主容器样式 */
+        .contenedor-principal {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3rem 1.5rem;
+        }
+
+        /* 板块通用样式 */
+        .seccion {
+            background-color: #ffffff;
+            border-radius: 16px;
+            padding: 3rem;
+            margin-bottom: 2.5rem;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.06);
+            transition: transform 0.3s ease;
+        }
+
+        .seccion:hover {
+            transform: translateY(-5px);
+        }
+
+        .seccion h2 {
+            color: #0c2461;
+            margin-bottom: 1.8rem;
+            font-size: 2rem;
+            border-left: 5px solid #3b82f6;
+            padding-left: 1.2rem;
+        }
+
+        .seccion p {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            text-align: justify;
+        }
+
+        /* 股票优势列表样式 */
+        .lista-ventajas {
+            list-style: none;
+            margin: 2rem 0;
+        }
+
+        .lista-ventajas li {
+            font-size: 1.05rem;
+            margin-bottom: 1rem;
+            padding-left: 2rem;
+            position: relative;
+        }
+
+        .lista-ventajas li::before {
+            content: "⭐";
+            position: absolute;
+            left: 0;
+            color: #f59e0b;
+            font-size: 1.2rem;
+        }
+
+        /* 热门企业板块样式 */
+        .empresas-destacadas {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .empresa-card {
+            background-color: #f8fafc;
+            border-radius: 12px;
+            padding: 1.5rem;
+            text-align: center;
+            border: 1px solid #e2e8f0;
+        }
+
+        .empresa-card h3 {
+            color: #1e3799;
+            margin-bottom: 0.8rem;
+            font-size: 1.3rem;
+        }
+
+        .empresa-card p {
+            font-size: 1rem;
+            color: #4a5568;
+            margin-bottom: 0;
+        }
+
+        /* ========== 新增：WhatsApp按钮样式 ========== */
+        .whatsapp-botones {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.2rem;
+            margin: 2.5rem 0;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .whatsapp-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+            background-color: #25d366;
+            color: #ffffff;
+            text-decoration: none;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-size: 1.05rem;
+            font-weight: 600;
+            box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
+            transition: all 0.3s ease-in-out;
+        }
+
+        .whatsapp-btn img {
+            width: 26px;
+            height: 26px;
+            object-fit: contain;
+        }
+
+        .whatsapp-btn:hover {
+            background-color: #128c7e;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 16px rgba(37, 211, 102, 0.4);
+        }
+
+        /* 页脚样式 */
+        footer {
+            background-color: #0c2461;
+            color: #ffffff;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 4rem;
+        }
+
+        footer p {
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        /* 响应式适配（移动端优化） */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2rem;
+            }
+
+            header p {
+                font-size: 1rem;
+            }
+
+            .contenedor-principal {
+                padding: 2rem 1rem;
+            }
+
+            .seccion {
+                padding: 1.8rem;
+            }
+
+            .seccion h2 {
+                font-size: 1.6rem;
+            }
+
+            .seccion p {
+                font-size: 1rem;
+            }
+
+            .empresas-destacadas {
+                grid-template-columns: 1fr;
+            }
+
+            /* ========== 响应式：WhatsApp按钮适配 ========== */
+            .whatsapp-botones {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .whatsapp-btn {
+                padding: 0.8rem 1.5rem;
+                font-size: 0.95rem;
+                width: 100%;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 页面头部 -->
+    <header>
+        <h1>Inversiones en Acciones del Mercado Español</h1>
+        <p>Descubre oportunidades rentables en el mercado bursátil español, con empresas líderes y un marco regulatorio seguro</p>
+    </header>
+
+    <!-- 主内容区域 -->
+    <div class="contenedor-principal">
+        <!-- 第一板块：为什么投资西班牙股票 -->
+        <section class="seccion">
+            <h2>¿Por Qué Elegir las Inversiones en Acciones Españolas?</h2>
+            <p>El mercado bursátil español, centrado en la Bolsa de Madrid (BME), es uno de los más importantes y estables de Europa. Con una historia larga y un marco regulatorio robusto, ofrece a los inversionistas una amplia gama de opciones para diversificar su cartera y obtener rendimientos competitivos a corto, medio y largo plazo.</p>
+            <p>Además, España cuenta con empresas que tienen una presencia internacional consolidada, lo que reduce el riesgo asociado a la volatilidad local y permite beneficiarse de los mercados globales. Ya sea que seas un inversionista principiante o un profesional experimentado, el mercado español tiene opciones adaptadas a tu perfil y objetivos financieros.</p>
+
+            <h3 style="color: #3b82f6; margin: 2rem 0 1.2rem; font-size: 1.5rem;">Ventajas Clave de Invertir en España</h3>
+            <ul class="lista-ventajas">
+                <li>Estabilidad económica y política a largo plazo en el contexto europeo</li>
+                <li>Empresas con dividendos regulares y altamente competitivos</li>
+                <li>Amplia diversificación de sectores: banca, energía, turismo, moda y tecnología</li>
+                <li>Marco regulatorio transparente que protege los intereses de los inversionistas</li>
+                <li>Acceso fácil a plataformas de inversión online con comisiones competitivas</li>
+                <li>Potencial de crecimiento con la recuperación económica europea y global</li>
+            </ul>
+
+            <!-- ========== 新增：3个WhatsApp联系按钮 ========== -->
+            <div class="whatsapp-botones">
+                <a href="https://wa.me/34123456789?text=Hola! Quiero obtener más información general sobre inversiones en acciones españolas." class="whatsapp-btn">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="Icono WhatsApp">
+                    Información General
+                </a>
+                <a href="https://wa.me/34123456789?text=Hola! Quiero consultar sobre los dividendos de empresas españolas líderes." class="whatsapp-btn">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="Icono WhatsApp">
+                    Consultar Dividendos
+                </a>
+                <a href="https://wa.me/34123456789?text=Hola! Quiero asesoramiento personalizado para invertir en el mercado español." class="whatsapp-btn">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="Icono WhatsApp">
+                    Asesoramiento Personalizado
+                </a>
+            </div>
+        </section>
+
+        <!-- 第二板块：热门西班牙企业 -->
+        <section class="seccion">
+            <h2>Empresas Líderes del Mercado Español</h2>
+            <p>El mercado español cuenta con empresas que son referentes a nivel mundial en sus respectivos sectores. Estas empresas ofrecen a los inversionistas una oportunidad de invertir en activos con alto potencial de rentabilidad y estabilidad.</p>
+
+            <div class="empresas-destacadas">
+                <div class="empresa-card">
+                    <h3>Inditex</h3>
+                    <p>Sector: Moda y Retail | Marca emblemática: Zara</p>
+                </div>
+                <div class="empresa-card">
+                    <h3>Banco Santander</h3>
+                    <p>Sector: Banca | Presencia en más de 10 países</p>
+                </div>
+                <div class="empresa-card">
+                    <h3>Iberdrola</h3>
+                    <p>Sector: Energía Renovable | Líder mundial en eólica</p>
+                </div>
+                <div class="empresa-card">
+                    <h3>Repsol</h3>
+                    <p>Sector: Energía | Comprometida con la transición energética</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 第三板块：投资建议 -->
+        <section class="seccion">
+            <h2>Consejos para Inversionistas en el Mercado Español</h2>
+            <p>Antes de iniciar tus inversiones en acciones españolas, es importante tener en cuenta algunos aspectos clave que te ayudarán a tomar decisiones informadas y minimizar los riesgos.</p>
+            <p>En primer lugar, diversifica tu cartera: no inviertas todo tu capital en un solo sector o empresa. En segundo lugar, analiza el rendimiento histórico de las empresas y su perspectiva futura. Finalmente, considera consultar a un asesor financiero especializado en el mercado bursátil español si eres un inversionista principiante.</p>
+            <p>Recuerda que la inversión en acciones implica riesgos, y los rendimientos pasados no garantizan resultados futuros. Es importante invertir solo el capital que estás dispuesto a perder y mantener una visión a largo plazo.</p>
+        </section>
+    </div>
+
+    <!-- 页面页脚 -->
+    <footer>
+        <p>© 2026 Inversiones Bursátiles Españolas - Todos los derechos reservados</p>
+        <p>Mercado Bursátil Español | Bolsa de Madrid (BME)</p>
+        <p>Información únicamente educativa - No constituye asesoramiento financiero</p>
+    </footer>
+</body>
+</html>
