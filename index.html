@@ -124,7 +124,7 @@
             margin-bottom: 0;
         }
 
-        /* ========== 新增：WhatsApp按钮样式 ========== */
+        /* ========== WhatsApp按钮样式 ========== */
         .whatsapp-botones {
             display: flex;
             flex-wrap: wrap;
@@ -205,7 +205,7 @@
                 grid-template-columns: 1fr;
             }
 
-            /* ========== 响应式：WhatsApp按钮适配 ========== */
+            /* 响应式：WhatsApp按钮适配 */
             .whatsapp-botones {
                 flex-direction: column;
                 gap: 1rem;
@@ -219,6 +219,24 @@
             }
         }
     </style>
+
+    <!-- ========== 嵌入：Facebook Meta Pixel Code ========== -->
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1206904441068950');
+    fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=1206904441068950&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- ========== End Meta Pixel Code ========== -->
 </head>
 <body>
     <!-- 页面头部 -->
@@ -245,7 +263,7 @@
                 <li>Potencial de crecimiento con la recuperación económica europea y global</li>
             </ul>
 
-            <!-- ========== 新增：3个WhatsApp联系按钮 ========== -->
+            <!-- 3个WhatsApp联系按钮 -->
             <div class="whatsapp-botones">
                 <a href="https://wa.me/34123456789?text=Hola! Quiero obtener más información general sobre inversiones en acciones españolas." class="whatsapp-btn">
                     <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="Icono WhatsApp">
